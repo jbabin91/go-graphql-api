@@ -96,3 +96,7 @@ INSERT INTO users VALUES
   (5, 'kevin', 15, 'in school', true),
   (6, 'frankie', 45, 'teller', true);
 ```
+
+## API
+
+See this [tutorial](https://medium.com/@bradford_hamilton/building-an-api-with-graphql-and-go-9350df5c9356) to get the code for the api.
