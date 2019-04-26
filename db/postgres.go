@@ -5,10 +5,10 @@ import (
 	"fmt"
 
 	// postgres driver
-	_ "github.com/lib/pg"
+	_ "github.com/lib/pq"
 )
 
-// DB is our database struct used for interacting with the database
+// Db is our database struct used for interacting with the database
 type Db struct {
 	*sql.DB
 }
@@ -34,20 +34,20 @@ func New(connString string) (*Db, error) {
 
 // ConnString returns a connection string based on the parameters it's given
 // This would normally also contain the password, however we're not using one
-func ConnString(host string, port int, user string, dbName string) string {
+func ConnString(host string, port int, user string, password string, dbName string) string {
 	return fmt.Sprintf(
-		"host=%s port=%d user=%s dbname=%s sslmode=disable",
-		host, port, user, dbname
+		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbName,
 	)
 }
 
 // User shape
 type User struct {
-	ID int
-	Name string
-	Age int
+	ID         int
+	Name       string
+	Age        int
 	Profession string
-	Friendly bool
+	Friendly   bool
 }
 
 // GetUsersByName is called within our user query for graphql
