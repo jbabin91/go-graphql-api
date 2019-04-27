@@ -50,7 +50,7 @@ mkdir -p $HOME/docker/volumes/postgres
 To start the postgres container simply run
 
 ``` zsh
-docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 ```
 
 #### Connecting to the Postgres Container
@@ -100,3 +100,13 @@ INSERT INTO users VALUES
 ## API
 
 See this [tutorial](https://medium.com/@bradford_hamilton/building-an-api-with-graphql-and-go-9350df5c9356) to get the code for the api.
+
+## Testing the API
+
+There are some great tools for exploring your GraphQL API like [graphiql](https://github.com/graphql/graphiql), [Insomnia](https://insomnia.rest/), and [graphql-playground](https://github.com/prisma/graphql-playground). You can also just make a POST request sending over a raw application/json body like this:
+
+``` json
+{
+  "query": "{users(name:\"kevin\"){id, name, age}}"
+}
+```
