@@ -29,7 +29,7 @@ func initializeAPI() (*chi.Mux, *postgres.Db) {
 
 	// Create a new connection to our postgres database
 	db, err := postgres.New(
-		postgres.ConnString("localhost", 5432, "postgres", "docker", "go_graphql_db"),
+		postgres.ConnString("localhost", 5432, "postgres", "postgres", "go_graphql_db"),
 	)
 
 	if err != nil {
